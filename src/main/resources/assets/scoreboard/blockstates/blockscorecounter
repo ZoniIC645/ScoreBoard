@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "scoreboard:blockscorecounter"
+    },
+    "inventory": {
+      "model": "scoreboard:blockscorecounter",
+      "transform": "forge:default-block"
+    }
+  }
+}
