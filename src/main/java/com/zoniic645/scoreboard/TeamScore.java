@@ -35,7 +35,7 @@ public class TeamScore extends WorldSavedData {
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         this.writeToNBT(compound);
-        //compound.setLong("counter", score);
+        compound.setLong("counter", score);
         return compound;
     }
 
