@@ -1,15 +1,9 @@
 package com.zoniic645.scoreboard.TileEntity;
 
-import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
-import com.feed_the_beast.ftblib.lib.data.Universe;
 import com.zoniic645.scoreboard.ItemScore;
-import com.zoniic645.scoreboard.TeamScore;
-import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.world.storage.WorldSavedData;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -18,19 +12,6 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
     /**
      * ㅋㅋ
      */
-    public TeamScore teamscore = null;
-
-    public void setTeam(ForgeTeam teamIn) {
-        if (TeamScore.getTeamScore(teamIn) == null){ //팀이 TeamScore가 있는지 확인
-            teamscore = new TeamScore(Universe.get().getWorldDirectory().getName(), teamIn);  //없으니까 만들어주자
-        } else {
-            teamscore = TeamScore.getTeamScore(teamIn); // 이미있으니까 넣어주자
-        }
-    }
-
-    public long getScore() {
-        return teamscore.getScore();
-    }
 
     /**
      * 별로 중요하지 않다. 여기서는 아이템 쳐먹는거만 관심있으니까 슬롯 한개만 냉겨둔거뿐임.
@@ -39,12 +20,6 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
     @Override
     public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
         System.out.printf("add Score : %d\n", ItemScore.instance().getScore(stack));
-        if (teamscore != null) {
-            teamscore.addScore(ItemScore.instance().getScore(stack)); // 점수 더함
-        } else {
-            System.out.printf("ERROR OCCURED"); // TeamScore 에 null이 있네용
-        }
-
         return ItemStack.EMPTY; // 빈 ItemStack을 반환하면 내가 다쳐먹었단뜻임
     }
 
