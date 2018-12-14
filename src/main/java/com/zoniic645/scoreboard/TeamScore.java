@@ -7,6 +7,7 @@ import net.minecraft.world.storage.WorldSavedData;
 import java.util.HashMap;
 import java.util.Map;
 
+//
 public class TeamScore extends WorldSavedData {
     private static Map<ForgeTeam, TeamScore> TeamScores = new HashMap<>();
     private static TeamScore INSTANCE = null;

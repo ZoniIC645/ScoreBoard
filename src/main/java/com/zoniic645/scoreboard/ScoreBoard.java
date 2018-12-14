@@ -53,13 +53,11 @@ public class ScoreBoard {
 
     @Mod.EventHandler
     public void Init(FMLInitializationEvent event) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println("Initing");
-        }
+
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        System.out.println("끝!");
+
     }
 }
