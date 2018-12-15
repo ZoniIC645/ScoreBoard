@@ -20,10 +20,10 @@ public class ItemScore {
     }
 
     //점수 받아옴
-    public int getScore(ItemStack stack) {
+    public static int getScore(ItemStack stack) {
         //화로 돚거임
-        for (Map.Entry<ItemStack, Integer> entry : this.ItemBasedScores.entrySet()) {
-            if (this.compareItemStacks(stack, entry.getKey())) {
+        for (Map.Entry<ItemStack, Integer> entry : ItemBasedScores.entrySet()) {
+            if (compareItemStacks(stack, entry.getKey())) {
                 return entry.getValue();
             }
         }
@@ -31,7 +31,7 @@ public class ItemScore {
     }
 
     //화로 돚거임2
-    private boolean compareItemStacks(ItemStack stack1, ItemStack stack2) {
+    private static boolean compareItemStacks(ItemStack stack1, ItemStack stack2) {
         return stack2.getItem() == stack1.getItem() && (stack2.getMetadata() == OreDictionary.WILDCARD_VALUE || stack2.getMetadata() == stack1.getMetadata());
     }
 }

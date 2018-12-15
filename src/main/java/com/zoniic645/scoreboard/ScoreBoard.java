@@ -27,11 +27,6 @@ public class ScoreBoard {
     @SidedProxy(clientSide = "com.zoniic645.scoreboard.Proxy.ClientProxy", serverSide = "com.zoniic645.scoreboard.Proxy.CommonProxy")
     public static CommonProxy proxy;
 
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        ModContents.registerScore();
-    }
-
     @Mod.EventBusSubscriber
     public static class RegistrationHandler {
 
@@ -52,8 +47,13 @@ public class ScoreBoard {
     }
 
     @Mod.EventHandler
-    public void Init(FMLInitializationEvent event) {
+    public void preInit(FMLPreInitializationEvent event) {
 
+    }
+
+    @Mod.EventHandler
+    public void Init(FMLInitializationEvent event) {
+        ModContents.registerScore();
     }
 
     @Mod.EventHandler

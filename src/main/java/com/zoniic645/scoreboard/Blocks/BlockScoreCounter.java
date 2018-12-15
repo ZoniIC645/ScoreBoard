@@ -1,5 +1,7 @@
 package com.zoniic645.scoreboard.Blocks;
 
+import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
+import com.feed_the_beast.ftblib.lib.data.Universe;
 import com.zoniic645.scoreboard.TileEntity.TileEntityScoreCounter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -10,6 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 public class BlockScoreCounter extends Block {
@@ -38,9 +41,19 @@ public class BlockScoreCounter extends Block {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
-
+            if (hand == EnumHand.MAIN_HAND) {
+                ForgeTeam team = Universe.get().getPlayer(playerIn.getGameProfile()).team; //team을 이걸 클릭한 플레이어의 팀으로 설정
+                if (getTileEntity(worldIn, pos).getTeamscore() == null) { //클릭한 타일엔티티가 팀스코어를 가지고 있는지 확인한다
+                    getTileEntity(worldIn, pos).setTeamscore(team); //팀스코어 설정
+                    playerIn.sendMessage(new TextComponentString("team set to : " + team.getID())); //팀 ID출력
+                } else {
+                    playerIn.sendMessage(new TextComponentString("it alredy have team : " + getTileEntity(worldIn, pos).getTeamscore().getTeam().getID()));
+                }
+            }
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
 }
