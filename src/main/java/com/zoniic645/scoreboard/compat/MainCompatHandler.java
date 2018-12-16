@@ -1,7 +1,7 @@
-package com.zoniic645.scoreboard;
+package com.zoniic645.scoreboard.compat;
 
 import net.minecraftforge.fml.common.Loader;
-import com.zoniic645.scoreboard.theoneprobecompatibility.TOPCompatibility;
+import com.zoniic645.scoreboard.compat.theoneprobecompatibility.TOPCompatibility;
 
 public class MainCompatHandler {
     public static void registerTOP() {
