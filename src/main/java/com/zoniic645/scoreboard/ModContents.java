@@ -1,7 +1,8 @@
 package com.zoniic645.scoreboard;
 
-import com.zoniic645.scoreboard.Blocks.BlockScoreCounter;
-import com.zoniic645.scoreboard.TileEntity.TileEntityScoreCounter;
+import com.zoniic645.scoreboard.blocks.BlockScoreCounter;
+import com.zoniic645.scoreboard.tileentity.TileEntityScoreCounter;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

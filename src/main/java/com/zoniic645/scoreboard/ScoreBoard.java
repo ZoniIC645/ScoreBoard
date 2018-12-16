@@ -1,7 +1,8 @@
 package com.zoniic645.scoreboard;
 
 import com.feed_the_beast.ftblib.FTBLib;
-import com.zoniic645.scoreboard.Proxy.CommonProxy;
+import com.zoniic645.scoreboard.proxy.CommonProxy;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;

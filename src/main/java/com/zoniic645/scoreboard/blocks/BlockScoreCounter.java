@@ -1,8 +1,9 @@
-package com.zoniic645.scoreboard.Blocks;
+package com.zoniic645.scoreboard.blocks;
 
 import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
 import com.feed_the_beast.ftblib.lib.data.Universe;
-import com.zoniic645.scoreboard.TileEntity.TileEntityScoreCounter;
+import com.zoniic645.scoreboard.tileentity.TileEntityScoreCounter;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

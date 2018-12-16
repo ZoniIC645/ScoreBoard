@@ -1,4 +1,4 @@
-package com.zoniic645.scoreboard.Proxy;
+package com.zoniic645.scoreboard.proxy;
 
 import net.minecraft.item.Item;
 

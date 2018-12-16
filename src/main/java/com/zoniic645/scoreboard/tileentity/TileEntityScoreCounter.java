@@ -1,4 +1,4 @@
-package com.zoniic645.scoreboard.TileEntity;
+package com.zoniic645.scoreboard.tileentity;
 
 import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
 import com.feed_the_beast.ftblib.lib.data.Universe;
