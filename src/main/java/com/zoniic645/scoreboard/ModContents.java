@@ -14,8 +14,9 @@ public class ModContents {
     public static final BlockScoreCounter ScoreCounter = new BlockScoreCounter();
     public static final Item ItemScoreCounter = new ItemBlock(ScoreCounter).setRegistryName(ScoreCounter.getRegistryName());
 
-    public static void registerBlock(IForgeRegistry<Block> registry) {
+    public static void register(IForgeRegistry<Block> registry) {
         registry.register(ScoreCounter);
+        GameRegistry.registerTileEntity(TileEntityScoreCounter.class, ScoreCounter.getRegistryName().toString());
     }
 
     public static void registerItem(IForgeRegistry<Item> registry) {
@@ -24,10 +25,6 @@ public class ModContents {
 
     public static void reigsterModels() {
         ScoreBoard.proxy.registerModel(ItemScoreCounter);
-    }
-
-    public static void registerTileEntity() {
-        GameRegistry.registerTileEntity(TileEntityScoreCounter.class, ScoreCounter.getRegistryName());
     }
 
     public static void registerScore() {

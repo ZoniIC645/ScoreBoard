@@ -37,7 +37,7 @@ public class ScoreBoard {
 
         @SubscribeEvent
         public static void registerBlock(RegistryEvent.Register<Block> event) {
-            ModContents.registerBlock(event.getRegistry());
+            ModContents.register(event.getRegistry());
         }
 
         @SubscribeEvent
