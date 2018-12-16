@@ -16,7 +16,7 @@ public class ModContents {
 
     public static void register(IForgeRegistry<Block> registry) {
         registry.register(ScoreCounter);
-        GameRegistry.registerTileEntity(TileEntityScoreCounter.class, ScoreCounter.getRegistryName().toString());
+        GameRegistry.registerTileEntity(TileEntityScoreCounter.class, ScoreCounter.getRegistryName());
     }
 
     public static void registerItem(IForgeRegistry<Item> registry) {

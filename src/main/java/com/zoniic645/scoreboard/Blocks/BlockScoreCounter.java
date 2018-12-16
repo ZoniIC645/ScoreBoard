@@ -43,11 +43,11 @@ public class BlockScoreCounter extends Block {
         if (!worldIn.isRemote) {
             if (hand == EnumHand.MAIN_HAND) {
                 ForgeTeam team = Universe.get().getPlayer(playerIn.getGameProfile()).team; //team을 이걸 클릭한 플레이어의 팀으로 설정
-                if (getTileEntity(worldIn, pos).getTeamscore() == null) { //클릭한 타일엔티티가 팀스코어를 가지고 있는지 확인한다
-                    getTileEntity(worldIn, pos).setTeamscore(team); //팀스코어 설정
+                if (getTileEntity(worldIn, pos).getTeam() == null) { //클릭한 타일엔티티가 팀스코어를 가지고 있는지 확인한다
+                	getTileEntity(worldIn, pos).setTeam(team); //팀스코어 설정
                     playerIn.sendMessage(new TextComponentString("team set to : " + team.getUID())); //팀 ID출력
                 } else {
-                    playerIn.sendMessage(new TextComponentString("it alredy have team : " + getTileEntity(worldIn, pos).getTeamscore().getTeam().getUID()));
+                    playerIn.sendMessage(new TextComponentString("it alredy have team : " + getTileEntity(worldIn, pos).getTeam().getUID()));
                 }
             }
             return true;
