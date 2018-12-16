@@ -56,7 +56,6 @@ public class TeamScore extends WorldSavedData {
         Iterator<ForgeTeam> iter = teamMap.keySet().iterator();
         while (iter.hasNext()) {
             ForgeTeam forgeTeam = iter.next();
-
             System.out.println(ANSI_WHITE_BACKGROUND + "WorldSavedData : NBT 데이터에 저장함 : " + forgeTeam.getUID() + ":" + teamMap.get(forgeTeam) + ANSI_RESET);
             NBTTagCompound tag = new NBTTagCompound();
             tag.setShort("teamUID", forgeTeam.getUID()); //팀을 저장할거니까 UID값을 넣어줌

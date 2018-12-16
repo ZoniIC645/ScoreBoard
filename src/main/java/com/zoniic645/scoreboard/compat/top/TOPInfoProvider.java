@@ -1,4 +1,4 @@
-package com.zoniic645.scoreboard.compat.theoneprobecompatibility;
+package com.zoniic645.scoreboard.compat.top;
 
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;

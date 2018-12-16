@@ -24,6 +24,7 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
         return team;
     }
 
+    //점수 반환
     public long getScore(){
         return TeamScore.get(world).getScore(team);
     }
@@ -35,7 +36,7 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
         System.out.println("팀 세팅함");
     }
 
-    //팀스코어를 월드에 쓴다. 이게 타일엔티티 부분이지? 키값은 아무거나 넣어둠
+    //타일엔티티의 팀을 월드에 쓴다.
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         System.out.println("NBT데이터를 월드에 작성함 UID : " + team.getUID());
@@ -44,14 +45,13 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
         return compound;
     }
 
-    //팀스코어를 월드에서 받아온다. 키값은 일단 아무거나 넣어둠
+    //팀을 월드에서 받아온다.
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         System.out.println("NBT데이터에서 읽어옴 UID : " + compound.getShort("team"));
         super.readFromNBT(compound);
         //팀 uuid(short)값을 가져와서 저장
         team = Universe.get().getTeam(compound.getShort("team"));
-        //테스트용
     }
 
     /**

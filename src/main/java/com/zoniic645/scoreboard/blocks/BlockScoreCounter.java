@@ -2,7 +2,7 @@ package com.zoniic645.scoreboard.blocks;
 
 import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
 import com.feed_the_beast.ftblib.lib.data.Universe;
-import com.zoniic645.scoreboard.compat.theoneprobecompatibility.TOPInfoProvider;
+import com.zoniic645.scoreboard.compat.top.TOPInfoProvider;
 import com.zoniic645.scoreboard.tileentity.TileEntityScoreCounter;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;

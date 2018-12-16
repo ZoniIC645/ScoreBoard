@@ -1,4 +1,4 @@
-package com.zoniic645.scoreboard.compat.theoneprobecompatibility;
+package com.zoniic645.scoreboard.compat.top;
 
 import com.zoniic645.scoreboard.ScoreBoard;
 import mcjty.theoneprobe.api.*;
@@ -19,7 +19,7 @@ public class TOPCompatibility {
         if (registered)
             return;
         registered = true;
-        FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe", "mcjty.modtut.compat.top.TOPCompatibility$GetTheOneProbe");
+        FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe", "zoniic645.scoreboard.compat.top.TOPCompatibility$GetTheOneProbe");
     }
 
 
@@ -35,7 +35,7 @@ public class TOPCompatibility {
             probe.registerProvider(new IProbeInfoProvider() {
                 @Override
                 public String getID() {
-                    return "modtut:default";
+                    return "scoreboard:default";
                 }
 
                 @Override
