@@ -54,7 +54,6 @@ public class TeamScore extends WorldSavedData {
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-
         NBTTagList list = new NBTTagList();
         Iterator<ForgeTeam> iter = teamMap.keySet().iterator();
         while(iter.hasNext()) {
@@ -66,7 +65,7 @@ public class TeamScore extends WorldSavedData {
         	tag.setLong("score", teamMap.get(forgeTeam)); //스코어니까 long을 넣어줌. 둘다 키값은 아무거나 넣음
         	list.appendTag(tag);
         }
-        
+        compound.setTag("teams", list);
         return compound;
     }
 
