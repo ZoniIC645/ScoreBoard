@@ -4,7 +4,6 @@ import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
 import com.feed_the_beast.ftblib.lib.data.Universe;
 import com.zoniic645.scoreboard.ItemScore;
 import com.zoniic645.scoreboard.TeamScore;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -17,17 +16,21 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
     /**
      * ㅋㅋ
      */
-    //스코어를 두자
+    //팀을 두자
     private ForgeTeam team;
 
-    //팀스코어를 반환해준다
+    //팀을 반환해준다
     public ForgeTeam getTeam() {
         return team;
     }
 
+    public long getScore(){
+        return TeamScore.get(world).getScore(team);
+    }
+
     //팀스코어를 받아와서 넣어주자
     public void setTeam(ForgeTeam teamIn) {
-    	team = teamIn;
+        team = teamIn;
         markDirty();
         System.out.println("팀 세팅함");
     }
@@ -57,14 +60,14 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
 
     @Override
     public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
-    	if(team != null) {
-	        if(!simulate) {
-		        System.out.printf("add Score : %d\n", ItemScore.getScore(stack)); //콘솔에서 템 점수 얼마인지 보여주는거임
-	        	TeamScore.get(world).addScore(team, ItemScore.getScore(stack));
-	        }
-	        return ItemStack.EMPTY; // 빈 ItemStack을 반환하면 내가 다쳐먹었단뜻임
-    	}
-    	return stack;
+        if (team != null) {
+            if (!simulate) {
+                System.out.printf("add Score : %d\n", ItemScore.getScore(stack)); //콘솔에서 템 점수 얼마인지 보여주는거임
+                TeamScore.get(world).addScore(team, ItemScore.getScore(stack));
+            }
+            return ItemStack.EMPTY; // 빈 ItemStack을 반환하면 내가 다쳐먹었단뜻임
+        }
+        return stack;
     }
 
     @Override
@@ -103,7 +106,7 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
      * 아래쪽에선 다른 상호작용을 만들고 싶어요!하면 facing이 EnumFacing.DOWN일 때 다른 IItemHandler를 줘버리면 된다.
      */
     @SuppressWarnings("unchecked")
-	@Override
+    @Override
     public <T> T getCapability(Capability<T> cap, EnumFacing facing) {
         if (CapabilityItemHandler.ITEM_HANDLER_CAPABILITY == cap) {
             return (T) this; // 형변환을 두려워하지 마라. 어차피 키값이 ITEM_HANDLER_CAPABILITY였으니 제네릭 타입 T는 무조건 IItemHandler이다.
