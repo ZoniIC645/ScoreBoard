@@ -45,7 +45,6 @@ public class TeamScore extends WorldSavedData {
             NBTTagCompound comp = list.getCompoundTagAt(i);
             ForgeTeam team = Universe.get().getTeam(comp.getShort("teamUID")); //팀 UID뽑아서 적용시킴
             long score = comp.getLong("score"); //스코어 뽑아서 적용시킴
-            System.out.println(ANSI_WHITE_BACKGROUND + "WorldSavedData : NBT데이터 뽑아서 적용시킹 : " + team + ":" + score + ANSI_RESET);
             teamMap.put(team, score);
         }
     }
@@ -56,7 +55,6 @@ public class TeamScore extends WorldSavedData {
         Iterator<ForgeTeam> iter = teamMap.keySet().iterator();
         while (iter.hasNext()) {
             ForgeTeam forgeTeam = iter.next();
-            System.out.println(ANSI_WHITE_BACKGROUND + "WorldSavedData : NBT 데이터에 저장함 : " + forgeTeam.getUID() + ":" + teamMap.get(forgeTeam) + ANSI_RESET);
             NBTTagCompound tag = new NBTTagCompound();
             tag.setShort("teamUID", forgeTeam.getUID()); //팀을 저장할거니까 UID값을 넣어줌
             tag.setLong("score", teamMap.get(forgeTeam)); //스코어니까 long을 넣어줌. 둘다 키값은 아무거나 넣음
@@ -68,7 +66,6 @@ public class TeamScore extends WorldSavedData {
 
     //점수 반환
     public long getScore(ForgeTeam teamIn) {
-        System.out.println("팀을 반환합니다");
         return teamMap.get(teamIn);
     }
 

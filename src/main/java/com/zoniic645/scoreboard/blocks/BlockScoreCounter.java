@@ -40,6 +40,8 @@ public class BlockScoreCounter extends Block implements TOPInfoProvider {
             probeInfo.horizontal()
                     .item(new ItemStack(Items.CLOCK))
                     .text(TextFormatting.GREEN + "Counter: " + tileEntityScoreCounter.getScore());
+            probeInfo.horizontal()
+                    .text(TextFormatting.AQUA + "Team: " + tileEntityScoreCounter.getTeam().getTitle().getFormattedText());
         }
     }
 

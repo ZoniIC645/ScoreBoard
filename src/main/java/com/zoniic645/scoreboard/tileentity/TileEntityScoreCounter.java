@@ -62,7 +62,6 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
     public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
         if (team != null) {
             if (!simulate) {
-                System.out.printf("add Score : %d\n", ItemScore.getScore(stack)); //콘솔에서 템 점수 얼마인지 보여주는거임
                 TeamScore.get(world).addScore(team, ItemScore.getScore(stack));
             }
             return ItemStack.EMPTY; // 빈 ItemStack을 반환하면 내가 다쳐먹었단뜻임

@@ -1,7 +1,11 @@
 package com.zoniic645.scoreboard.compat.top;
 
 import com.zoniic645.scoreboard.ScoreBoard;
-import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.api.ITheOneProbe;
+import mcjty.theoneprobe.api.IProbeHitData;
+import mcjty.theoneprobe.api.IProbeInfoProvider;
+import mcjty.theoneprobe.api.IProbeInfo;
+import mcjty.theoneprobe.api.ProbeMode;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -19,7 +23,7 @@ public class TOPCompatibility {
         if (registered)
             return;
         registered = true;
-        FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe", "zoniic645.scoreboard.compat.top.TOPCompatibility$GetTheOneProbe");
+        FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe", "com.zoniic645.scoreboard.compat.top.TOPCompatibility$GetTheOneProbe");
     }
 
 
