@@ -21,7 +21,9 @@ compileJava {
 }
 
 repositories {
-    maven { url "https://maven.latmod.com/" }
+    maven { //FTBlib
+        url "https://maven.latmod.com/"
+    }
     maven { // TOP
         name 'tterrag maven'
         url "http://maven.tterrag.com/"
@@ -30,13 +32,17 @@ repositories {
         name = "CoFH Maven"
         url = "http://maven.covers1624.net"
     }
+    maven { //CT
+        name 'Blame Jared Maven'
+        url 'http://maven.blamejared.com'
+    }
 }
 
 dependencies {
     deobfCompile "com.feed_the_beast.mods:FTBLib:${ftblib_version}"
-    //deobfCompile "com.feed_the_beast.mods:FTBUtilities:${ftbutilities_version}"
     deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.14-7"
     deobfCompile "cofh:RedstoneFlux:1.12-2.0.0.1:universal"
+    deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${version_minetweaker}"
 }
 
 minecraft {

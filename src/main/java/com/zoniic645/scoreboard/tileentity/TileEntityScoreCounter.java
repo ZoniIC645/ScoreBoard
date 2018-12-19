@@ -9,15 +9,25 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTank;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
+import javax.annotation.Nullable;
+
+public class TileEntityScoreCounter extends TileEntity implements IItemHandler{
     /**
      * ㅋㅋ
      */
     //팀을 두자
     private ForgeTeam team;
+
+    protected FluidTank tank = new FluidTank(Fluid.BUCKET_VOLUME);
 
     //팀을 반환해준다
     public ForgeTeam getTeam() {
@@ -25,7 +35,7 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
     }
 
     //점수 반환
-    public long getScore(){
+    public long getScore() {
         return TeamScore.get(world).getScore(team);
     }
 
@@ -107,7 +117,7 @@ public class TileEntityScoreCounter extends TileEntity implements IItemHandler {
     @SuppressWarnings("unchecked")
     @Override
     public <T> T getCapability(Capability<T> cap, EnumFacing facing) {
-        if (CapabilityItemHandler.ITEM_HANDLER_CAPABILITY == cap) {
+        if (CapabilityItemHandler.ITEM_HANDLER_CAPABILITY == cap && facing == EnumFacing.UP) {
             return (T) this; // 형변환을 두려워하지 마라. 어차피 키값이 ITEM_HANDLER_CAPABILITY였으니 제네릭 타입 T는 무조건 IItemHandler이다.
         }
         return super.getCapability(cap, facing);

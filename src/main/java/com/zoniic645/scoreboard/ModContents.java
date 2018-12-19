@@ -27,11 +27,4 @@ public class ModContents {
     public static void reigsterModels() {
         ScoreBoard.proxy.registerModel(ItemScoreCounter);
     }
-
-    public static void registerScore() {
-        ItemScore.addScore(new ItemStack(Items.APPLE), 3);
-        ItemScore.addScore(new ItemStack(Items.ARROW), 4);
-        ItemScore.addScore(new ItemStack(Items.DYE, 1, 7), 5);
-        ItemScore.addScore(new ItemStack(Items.DYE, 1, 8), 6);
-    }
 }

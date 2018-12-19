@@ -61,7 +61,7 @@ public class ScoreBoard {
 
     @Mod.EventHandler
     public void Init(FMLInitializationEvent event) {
-        ModContents.registerScore();
+
     }
 
     @Mod.EventHandler
