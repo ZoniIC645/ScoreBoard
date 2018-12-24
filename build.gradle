@@ -32,7 +32,7 @@ repositories {
         name = "CoFH Maven"
         url = "http://maven.covers1624.net"
     }
-    maven { //CT
+    maven { //CT //IE
         name 'Blame Jared Maven'
         url 'http://maven.blamejared.com'
     }
@@ -43,6 +43,7 @@ dependencies {
     deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.14-7"
     deobfCompile "cofh:RedstoneFlux:1.12-2.0.0.1:universal"
     deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${version_minetweaker}"
+    deobfCompile "blusunrize:ImmersiveEngineering:0.12-88-503"
 }
 
 minecraft {

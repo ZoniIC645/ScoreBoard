@@ -1,6 +1,6 @@
 package com.zoniic645.scoreboard.compat.crafttweaker;
 
-import com.zoniic645.scoreboard.ItemScore;
+import com.zoniic645.scoreboard.score.ItemScore;
 import crafttweaker.IAction;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.minecraft.CraftTweakerMC;

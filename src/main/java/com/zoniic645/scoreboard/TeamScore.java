@@ -8,14 +8,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.storage.MapStorage;
 import net.minecraft.world.storage.WorldSavedData;
 import net.minecraftforge.common.util.Constants;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 public class TeamScore extends WorldSavedData {
-
-    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
-    public static final String ANSI_RESET = "\u001B[0m";//색좀 줘보려고. 의미있는건 아님
     private static Map<ForgeTeam, Long> teamMap = new HashMap<>();  //키값으로 포지팀을 받고 value로 long(score)를 냄. 이게 점수를 관리함
 
     public static final String DATA_NAME = "teamscore";

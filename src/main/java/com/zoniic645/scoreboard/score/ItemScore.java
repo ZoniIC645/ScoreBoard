@@ -1,4 +1,4 @@
-package com.zoniic645.scoreboard;
+package com.zoniic645.scoreboard.score;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;

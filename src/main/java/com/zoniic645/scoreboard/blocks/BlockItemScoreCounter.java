@@ -3,7 +3,7 @@ package com.zoniic645.scoreboard.blocks;
 import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
 import com.feed_the_beast.ftblib.lib.data.Universe;
 import com.zoniic645.scoreboard.compat.top.TOPInfoProvider;
-import com.zoniic645.scoreboard.tileentity.TileEntityScoreCounter;
+import com.zoniic645.scoreboard.tileentity.TileEntityItemScoreCounter;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
@@ -22,32 +22,50 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
-public class BlockScoreCounter extends Block implements TOPInfoProvider {
-    public BlockScoreCounter() {
+public class BlockItemScoreCounter extends Block implements TOPInfoProvider {
+    public BlockItemScoreCounter() {
         super(Material.ANVIL);
-        setRegistryName("blockscorecounter");
-        setUnlocalizedName("BlockScoreCounter");
+        setRegistryName("blockitemscorecounter");
+        setUnlocalizedName("BlockItemScoreCounter");
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         TileEntity te = world.getTileEntity(data.getPos());
-        if (te instanceof TileEntityScoreCounter) {
+        if (te instanceof TileEntityItemScoreCounter) {
             // If we are sure that the entity there is correct we can proceed:
-            TileEntityScoreCounter tileEntityScoreCounter = (TileEntityScoreCounter) te;
+            TileEntityItemScoreCounter tileEntityItemScoreCounter = (TileEntityItemScoreCounter) te;
             // First add a horizontal line showing the clock item followed by current contents of the counter in the tile entity
-            probeInfo.horizontal()
-                    .item(new ItemStack(Items.CLOCK))
-                    .text(TextFormatting.GREEN + "Counter: " + tileEntityScoreCounter.getScore());
-            probeInfo.horizontal()
-                    .text(TextFormatting.AQUA + "Team: " + tileEntityScoreCounter.getTeam().getTitle().getFormattedText());
+            if(tileEntityItemScoreCounter.getTeam() != null) {
+                probeInfo.horizontal()
+                        .text(TextFormatting.AQUA + "Team: " + tileEntityItemScoreCounter.getTeam().getTitle().getFormattedText());
+                probeInfo.horizontal()
+                        .item(new ItemStack(Items.CLOCK))
+                        .text(TextFormatting.GREEN + "Counter: " + tileEntityItemScoreCounter.getScore());
+            }
+            else {
+                probeInfo.horizontal()
+                        .text(TextFormatting.AQUA + "Don't have team yet");
+            }
         }
     }
 
     @Override
     public TileEntity createTileEntity(World world, IBlockState state) {
-        return new TileEntityScoreCounter();
+        return new TileEntityItemScoreCounter();
+    }
+
+    @Override
+    @Deprecated
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
+    }
+
+    @Override
+    @Deprecated
+    public boolean isFullCube(IBlockState state) {
+        return false;
     }
 
     @Override
@@ -56,8 +74,8 @@ public class BlockScoreCounter extends Block implements TOPInfoProvider {
     }
 
     //타일엔티티내놔
-    private TileEntityScoreCounter getTileEntity(World world, BlockPos pos) {
-        return (TileEntityScoreCounter) world.getTileEntity(pos);
+    private TileEntityItemScoreCounter getTileEntity(World world, BlockPos pos) {
+        return (TileEntityItemScoreCounter) world.getTileEntity(pos);
     }
 
     @Override
@@ -74,7 +92,7 @@ public class BlockScoreCounter extends Block implements TOPInfoProvider {
                     playerIn.sendMessage(new TextComponentString("it alredy have team. score : " + getTileEntity(worldIn, pos).getScore()));
                 }
             }
-            return true;
+            return false;
         } else {
             return false;
         }
