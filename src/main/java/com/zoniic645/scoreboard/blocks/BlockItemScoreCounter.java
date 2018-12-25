@@ -26,7 +26,7 @@ public class BlockItemScoreCounter extends Block implements TOPInfoProvider {
     public BlockItemScoreCounter() {
         super(Material.ANVIL);
         setRegistryName("blockitemscorecounter");
-        setUnlocalizedName("BlockItemScoreCounter");
+        setUnlocalizedName("blockitemscorecounter");
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 

@@ -1,9 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "blocks/anvil_base",
-		"1": "blocks/beacon",
-		"particle": "minecraft:blocks/anvil_base"
+		"0": "minecraft:blocks/anvil_base",
+		"1": "minecraft:blocks/beacon"
 	},
 	"elements": [
 		{

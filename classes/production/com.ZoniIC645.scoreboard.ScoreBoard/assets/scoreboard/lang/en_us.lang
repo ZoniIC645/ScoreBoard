@@ -1,2 +1,3 @@
-tile.BlockItemScoreCounter.name=ItemScoreCounter
-tile.BlockFluidScoreCounter.name=FluidScoreCounter
+
+tile.blockitemscorecounter.name=ItemScoreCounter
+tile.blockfluidscorecounter.name=FluidScoreCounter

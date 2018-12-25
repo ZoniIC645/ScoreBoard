@@ -16,8 +16,13 @@ public class TileEntityFluidScoreCounter extends BaseScoreCounter implements IFl
 
     @Override
     public void update() {
-        if (this.getFluidAmount() > 0)
-            this.drain(this.getFluidAmount(), true);
+        if (this.getFluidAmount() > 0){
+            FluidStack resource = new FluidStack(this.getFluid(),this.getFluidAmount());
+            float score = resource.amount * FluidScore.getScore(resource.getFluid());
+            TeamScore.get(world).addScore(team, (int)score);
+            this.drain(1000,true);
+        }
+
     }
 
     @Override
@@ -62,10 +67,6 @@ public class TileEntityFluidScoreCounter extends BaseScoreCounter implements IFl
 
     @Override
     public FluidStack drain(int maxDrain, boolean doDrain) {
-        FluidStack resource = new FluidStack(this.getFluid(),this.getFluidAmount());
-        float score = resource.amount * FluidScore.getScore(resource.getFluid());
-        TeamScore.get(world).addScore(team, (int)score);
-        //System.out.println("score" + resource.amount + "*" + FluidScore.getScore(resource.getFluid()) + "=" + resource.amount * FluidScore.getScore(resource.getFluid()));
         return tank.drain(maxDrain, doDrain);
     }
 }
