@@ -2,7 +2,8 @@ package com.zoniic645.scoreboard.tileentity;
 
 import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
 import com.feed_the_beast.ftblib.lib.data.Universe;
-import com.zoniic645.scoreboard.TeamScore;
+import com.zoniic645.scoreboard.score.TeamScore;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 

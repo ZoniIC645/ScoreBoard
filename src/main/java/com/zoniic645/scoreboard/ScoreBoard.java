@@ -1,22 +1,22 @@
 package com.zoniic645.scoreboard;
 
+import org.apache.logging.log4j.Logger;
+
 import com.feed_the_beast.ftblib.FTBLib;
 import com.zoniic645.scoreboard.compat.MainCompatHandler;
 import com.zoniic645.scoreboard.proxy.CommonProxy;
-import com.zoniic645.scoreboard.score.FluidScore;
+import com.zoniic645.scoreboard.score.ScoreUploader;
+import com.zoniic645.scoreboard.score.TaskSchedular;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import org.apache.logging.log4j.Logger;
 
 @Mod(
         modid = ScoreBoard.MODID,
@@ -60,14 +60,12 @@ public class ScoreBoard {
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         MainCompatHandler.registerTOP();
+        TaskSchedular.init();
+        ScoreUploader.init();
     }
-
+    
     @Mod.EventHandler
-    public void Init(FMLInitializationEvent event) {
-    }
-
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-
+    public void onStop(FMLServerStoppedEvent event) {
+    	ScoreUploader.update();
     }
 }

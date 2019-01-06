@@ -1,4 +1,4 @@
-package com.zoniic645.scoreboard;
+package com.zoniic645.scoreboard.score;
 
 import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
 import com.feed_the_beast.ftblib.lib.data.Universe;
@@ -60,6 +60,10 @@ public class TeamScore extends WorldSavedData {
         }
         compound.setTag("teams", list);
         return compound;
+    }
+    
+    public Map<ForgeTeam, Long> getScore() {
+        return teamMap;
     }
 
     //점수 반환

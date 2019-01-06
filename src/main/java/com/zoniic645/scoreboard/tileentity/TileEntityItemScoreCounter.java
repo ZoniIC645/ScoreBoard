@@ -1,7 +1,8 @@
 package com.zoniic645.scoreboard.tileentity;
 
-import com.zoniic645.scoreboard.TeamScore;
 import com.zoniic645.scoreboard.score.ItemScore;
+import com.zoniic645.scoreboard.score.TeamScore;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;

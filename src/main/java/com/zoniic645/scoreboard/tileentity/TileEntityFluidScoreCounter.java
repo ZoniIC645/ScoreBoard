@@ -1,7 +1,8 @@
 package com.zoniic645.scoreboard.tileentity;
 
-import com.zoniic645.scoreboard.TeamScore;
 import com.zoniic645.scoreboard.score.FluidScore;
+import com.zoniic645.scoreboard.score.TeamScore;
+
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraftforge.common.capabilities.Capability;
@@ -22,7 +23,6 @@ public class TileEntityFluidScoreCounter extends BaseScoreCounter implements IFl
             TeamScore.get(world).addScore(team, (int)score);
             this.drain(1000,true);
         }
-
     }
 
     @Override
