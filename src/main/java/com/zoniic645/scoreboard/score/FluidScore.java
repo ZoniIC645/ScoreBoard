@@ -23,5 +23,4 @@ public class FluidScore {
             return FluidBasedScore.get(fluid);
         return 0;
     }
-
 }
