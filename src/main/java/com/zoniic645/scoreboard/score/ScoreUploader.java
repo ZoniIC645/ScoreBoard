@@ -43,9 +43,8 @@ public class ScoreUploader {
 			    )
 			);
 		} catch(IOException e) {
-			e.printStackTrace();
-			//ScoreBoard.logger.log(Level.ERROR, "An error ocurred while getting the token. If you are not going to use this feature, just ignore this.");
-			//ScoreBoard.logger.log(Level.ERROR, e.getMessage());
+			ScoreBoard.logger.log(Level.ERROR, "An error ocurred while getting the token. If you are not going to use this feature, just ignore this.");
+			ScoreBoard.logger.log(Level.ERROR, e.getMessage());
 		}
 	}
 	
@@ -79,8 +78,9 @@ public class ScoreUploader {
 				System.out.println(line);
 			}
 			br.close();
-		} catch (Exception e) {
-			System.out.println("exception : " + e);
+		} catch (IOException e) {
+			ScoreBoard.logger.log(Level.ERROR, "An error ocurred while sending the score.");
+			ScoreBoard.logger.log(Level.ERROR, e.getMessage());
 		}
 	}
 	

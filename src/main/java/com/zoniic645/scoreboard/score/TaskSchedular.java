@@ -57,6 +57,8 @@ public class TaskSchedular extends TimerTask {
 			}
 		}
 		
+		if(dates.size() == 0) return;
+		
 		//Get the time that is after now
 		Date date = new Date();
 		int index = 0;
