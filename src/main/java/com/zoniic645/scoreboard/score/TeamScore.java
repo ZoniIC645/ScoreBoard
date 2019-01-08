@@ -74,7 +74,7 @@ public class TeamScore extends WorldSavedData {
     //점수 더함
     public void addScore(ForgeTeam team, int add) {
         if (teamMap.containsKey(team)) {
-            teamMap.put(team, teamMap.get(team) + add);
+            teamMap.replace(team, teamMap.get(team) + add);
         } else {
             teamMap.put(team, (long) add);
         }

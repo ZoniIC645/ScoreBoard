@@ -2,7 +2,6 @@ package com.zoniic645.scoreboard.tileentity;
 
 import com.zoniic645.scoreboard.score.FluidScore;
 import com.zoniic645.scoreboard.score.TeamScore;
-
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraftforge.common.capabilities.Capability;

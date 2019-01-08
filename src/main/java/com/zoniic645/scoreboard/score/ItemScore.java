@@ -17,6 +17,7 @@ public class ItemScore {
 
     public static void addScore(ItemStack stack, int score) {
         ItemBasedScores.put(stack, score);
+        CountedItem.setItemCounted(stack);
     }
 
     //점수 받아옴

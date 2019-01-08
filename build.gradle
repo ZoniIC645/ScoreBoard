@@ -12,10 +12,6 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 apply plugin: 'java'
 
-tasks.withType(Compile) {
-    options.encoding = 'UTF-8'
-}
-
 version = "1.0"
 group = "com.ZoniIC645.scoreboard" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "scoreboard"
@@ -49,6 +45,7 @@ dependencies {
     deobfCompile "cofh:RedstoneFlux:1.12-2.0.0.1:universal"
     deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${version_minetweaker}"
     deobfCompile "blusunrize:ImmersiveEngineering:0.12-88-503"
+    compile group: 'com.google.api-client', name: 'google-api-client', version: '1.24.1'
 }
 
 minecraft {
