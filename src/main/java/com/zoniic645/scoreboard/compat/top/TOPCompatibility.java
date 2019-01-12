@@ -1,6 +1,5 @@
 package com.zoniic645.scoreboard.compat.top;
 
-import com.zoniic645.scoreboard.ScoreBoard;
 import mcjty.theoneprobe.api.ITheOneProbe;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfoProvider;
@@ -11,6 +10,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import org.apache.logging.log4j.Level;
+
+import com.zoniic645.scoreboard.ScoreBoard;
 
 import javax.annotation.Nullable;
 import java.util.function.Function;

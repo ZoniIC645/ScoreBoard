@@ -1,4 +1,4 @@
-package com.zoniic645.scoreboard.score;
+package com.zoniic645.scoreboard.score.upload;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -21,6 +21,10 @@ import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.gson.Gson;
 import com.zoniic645.scoreboard.ScoreBoard;
+import com.zoniic645.scoreboard.score.ScoreConfig;
+import com.zoniic645.scoreboard.score.ScoreData;
+import com.zoniic645.scoreboard.score.TeamScore;
+import com.zoniic645.scoreboard.score.ScoreData.Player;
 
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;

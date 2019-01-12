@@ -1,4 +1,4 @@
-package com.zoniic645.scoreboard.score;
+package com.zoniic645.scoreboard.score.upload;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,6 +12,7 @@ import java.util.TimerTask;
 import org.apache.logging.log4j.Level;
 
 import com.zoniic645.scoreboard.ScoreBoard;
+import com.zoniic645.scoreboard.score.ScoreConfig;
 
 public class TaskSchedular extends TimerTask {
 	

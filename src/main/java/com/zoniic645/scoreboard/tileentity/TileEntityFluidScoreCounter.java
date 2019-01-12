@@ -1,10 +1,13 @@
 package com.zoniic645.scoreboard.tileentity;
 
-import com.zoniic645.scoreboard.score.FluidScore;
+import com.zoniic645.scoreboard.score.InputCounter;
+import com.zoniic645.scoreboard.score.ScoreHandler;
 import com.zoniic645.scoreboard.score.TeamScore;
+
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.FluidTankInfo;
@@ -17,8 +20,9 @@ public class TileEntityFluidScoreCounter extends BaseScoreCounter implements IFl
     @Override
     public void update() {
         if (this.getFluidAmount() > 0){
-            FluidStack resource = new FluidStack(this.getFluid(),this.getFluidAmount());
-            float score = resource.amount * FluidScore.getScore(resource.getFluid());
+            FluidStack resource = new FluidStack(this.getFluid(), this.getFluidAmount());
+            Fluid fluid = resource.getFluid();
+            float score = resource.amount * ScoreHandler.FLUID.getScore(fluid, InputCounter.FLUID.getCount(fluid));
             TeamScore.get(world).addScore(team, (int)score);
             this.drain(1000,true);
         }

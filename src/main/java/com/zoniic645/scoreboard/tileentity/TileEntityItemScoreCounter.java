@@ -1,6 +1,7 @@
 package com.zoniic645.scoreboard.tileentity;
 
-import com.zoniic645.scoreboard.score.ItemScore;
+import com.zoniic645.scoreboard.score.InputCounter;
+import com.zoniic645.scoreboard.score.ScoreHandler;
 import com.zoniic645.scoreboard.score.TeamScore;
 
 import net.minecraft.item.ItemStack;
@@ -18,7 +19,7 @@ public class TileEntityItemScoreCounter extends BaseScoreCounter implements IIte
     public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
         if (team != null) {
             if (!simulate) {
-                TeamScore.get(world).addScore(team, ItemScore.getScore(stack));
+                TeamScore.get(world).addScore(team, ScoreHandler.ITEM.getScore(stack, InputCounter.ITEM.getCount(stack)));
             }
             return ItemStack.EMPTY; // 빈 ItemStack을 반환하면 내가 다쳐먹었단뜻임
         }

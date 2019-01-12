@@ -5,8 +5,8 @@ import org.apache.logging.log4j.Logger;
 import com.feed_the_beast.ftblib.FTBLib;
 import com.zoniic645.scoreboard.compat.MainCompatHandler;
 import com.zoniic645.scoreboard.proxy.CommonProxy;
-import com.zoniic645.scoreboard.score.ScoreUploader;
-import com.zoniic645.scoreboard.score.TaskSchedular;
+import com.zoniic645.scoreboard.score.upload.ScoreUploader;
+import com.zoniic645.scoreboard.score.upload.TaskSchedular;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
