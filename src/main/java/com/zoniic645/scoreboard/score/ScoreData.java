@@ -1,19 +1,17 @@
 package com.zoniic645.scoreboard.score;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ScoreData {
 
 	private short UID;
 	private String name;
 	private long score;
-	private List<Player> players = new ArrayList<Player>();
+	//private List<Player> players = new ArrayList<Player>();
 	
-	public ScoreData(short UID, String name, long score, List<Player> players) {
+	public ScoreData(short UID, String name, long score/*, List<Player> players*/) {
 		this.UID = UID;
 		this.name = name;
 		this.score = score;
+		//this.players = players;
 	}
 
 	public short getUID() {
@@ -28,6 +26,7 @@ public class ScoreData {
 		return score;
 	}
 	
+	/*
 	public List<Player> getPlayers() {
 		return players;
 	}
@@ -50,4 +49,5 @@ public class ScoreData {
 			return role;
 		}
 	}
+	*/
 }

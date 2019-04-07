@@ -6,7 +6,6 @@ import com.feed_the_beast.ftblib.FTBLib;
 import com.zoniic645.scoreboard.compat.MainCompatHandler;
 import com.zoniic645.scoreboard.proxy.CommonProxy;
 import com.zoniic645.scoreboard.score.upload.ScoreUploader;
-import com.zoniic645.scoreboard.score.upload.TaskSchedular;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -60,7 +59,7 @@ public class ScoreBoard {
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         MainCompatHandler.registerTOP();
-        TaskSchedular.init();
+        //TaskSchedular.init();
         ScoreUploader.init();
     }
     

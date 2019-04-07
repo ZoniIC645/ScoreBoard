@@ -15,8 +15,6 @@ import java.util.Map;
 
 import org.apache.logging.log4j.Level;
 
-import com.feed_the_beast.ftblib.lib.EnumTeamStatus;
-import com.feed_the_beast.ftblib.lib.data.ForgePlayer;
 import com.feed_the_beast.ftblib.lib.data.ForgeTeam;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.gson.Gson;
@@ -24,7 +22,6 @@ import com.zoniic645.scoreboard.ScoreBoard;
 import com.zoniic645.scoreboard.score.ScoreConfig;
 import com.zoniic645.scoreboard.score.ScoreData;
 import com.zoniic645.scoreboard.score.TeamScore;
-import com.zoniic645.scoreboard.score.ScoreData.Player;
 
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -53,8 +50,10 @@ public class ScoreUploader {
 	}
 	
 	public static void update() {
-		refresh();
-		send();
+		if(!send()) {
+			refresh();
+			send();	
+		}
 	}
 	
 	private static void refresh() {
@@ -67,7 +66,7 @@ public class ScoreUploader {
 		}
 	}
 	
-	private static void send() {
+	private static boolean send() {
 		try {
 			URL url = new URL("https://" + ScoreConfig.projectId + ".firebaseio.com/" + ScoreConfig.path + ".json?access_token=" + token);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -82,10 +81,12 @@ public class ScoreUploader {
 				System.out.println(line);
 			}
 			br.close();
+			return true;
 		} catch (IOException e) {
 			ScoreBoard.logger.log(Level.ERROR, "An error ocurred while sending the score.");
 			ScoreBoard.logger.log(Level.ERROR, e.getMessage());
 		}
+		return false;
 	}
 	
 	private static String getNewData() {
@@ -97,12 +98,13 @@ public class ScoreUploader {
 		Iterator<ForgeTeam> iter = scoreMap.keySet().iterator();
 		while(iter.hasNext()) {
 			ForgeTeam team = iter.next();
-			dataList.add(new ScoreData(team.getUID(), team.getTitle().getUnformattedText(), scoreMap.get(team), getPlayerList(team.players)));
+			dataList.add(new ScoreData(team.getUID(), team.getTitle().getUnformattedText(), scoreMap.get(team)/*, getPlayerList(team.players)*/));
 		}
 		
 		return gson.toJson(dataList);
 	}
 	
+	/*
 	private static List<ScoreData.Player> getPlayerList(Map<ForgePlayer, EnumTeamStatus> playerMap) {
 		List<ScoreData.Player> players = new ArrayList<ScoreData.Player>();
 		
@@ -117,4 +119,5 @@ public class ScoreUploader {
 		
 		return players;
 	}
+	*/
 }

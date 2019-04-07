@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Level;
 import com.zoniic645.scoreboard.ScoreBoard;
 import com.zoniic645.scoreboard.score.ScoreConfig;
 
+@Deprecated
 public class TaskSchedular extends TimerTask {
 	
 	static List<Date> dates = new ArrayList<Date>();
